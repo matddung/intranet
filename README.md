@@ -32,3 +32,18 @@ Gradle 7.6.1
 
 Lombok
 
+사용 방법
+---------
+1. 관리자 로그인
+   * ID : admin
+   * PW : admin
+2. 일반 회원 로그인
+   * 김대리
+     * ID : test1
+     * PW : test1
+   * 김과장
+     * ID : test2
+     * PW : test2
+   * 김부장
+     * ID : test3
+     * PW : test3
