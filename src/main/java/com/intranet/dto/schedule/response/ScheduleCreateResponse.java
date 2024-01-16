@@ -5,8 +5,10 @@ import com.intranet.entity.Schedule;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 public record ScheduleCreateResponse(
+        UUID id,
         @Schema(description = "스케줄 내용", example = "거래처 미팅")
         String content,
         @Schema(description = "스케줄 시작하는 시간", example = "2024-01-09T15:00:00")
@@ -22,6 +24,7 @@ public record ScheduleCreateResponse(
 ) {
     public static ScheduleCreateResponse from(Schedule schedule) {
         return new ScheduleCreateResponse(
+                schedule.getId(),
                 schedule.getContent(),
                 schedule.getStartTime(),
                 schedule.getEndTime(),

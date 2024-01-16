@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
-@Tag(name = "로그인 하면 사용할 수 있는 API")
+@Tag(name = "회원 승인 전 사용할 수 있는 API")
 @RequiredArgsConstructor
 @LoginAuthorize
 @RestController

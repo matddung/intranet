@@ -49,9 +49,11 @@ public class Schedule {
     }
 
     public void update(ScheduleUpdateRequest request, Member member) {
+        this.member = member;
         this.content = request.content();
         this.address = request.address();
         this.startTime = request.startTime();
         this.endTime = request.endTime();
+        this.modifiedAt = LocalDateTime.now();
     }
 }

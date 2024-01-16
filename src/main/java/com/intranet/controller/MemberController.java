@@ -6,6 +6,7 @@ import com.intranet.dto.Question.Request.QuestionCreateRequest;
 import com.intranet.dto.member.request.MemberUpdateRequest;
 import com.intranet.dto.report.request.ReportSubmitRequest;
 import com.intranet.dto.schedule.request.ScheduleCreateRequest;
+import com.intranet.dto.schedule.request.ScheduleUpdateRequest;
 import com.intranet.security.UserAuthorize;
 import com.intranet.service.*;
 import io.swagger.v3.oas.annotations.Operation;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
-@Tag(name = "로그인 후 사용할 수 있는 API")
+@Tag(name = "회원 승인 후 사용할 수 있는 API")
 @RequiredArgsConstructor
 @UserAuthorize
 @RestController
@@ -43,7 +44,7 @@ public class MemberController {
     }
 
     @Operation(summary = "회원 정보 수정")
-    @PutMapping
+    @PatchMapping
     public ApiResponse updateMember(@AuthenticationPrincipal User user, @RequestBody MemberUpdateRequest request) {
         return ApiResponse.success(memberService.updateMember(UUID.fromString(user.getUsername()), request));
     }
@@ -94,13 +95,13 @@ public class MemberController {
     }
 
     @Operation(summary = "보고서 1차 승인")
-    @PutMapping("/firstApproveReport")
+    @PostMapping("/firstApproveReport")
     public ApiResponse firstApproveReport(@AuthenticationPrincipal User user, @RequestParam UUID id) {
         return ApiResponse.success(reportService.firstApproveReport(UUID.fromString(user.getUsername()), id));
     }
 
     @Operation(summary = "보고서 2차 승인")
-    @PutMapping("/secondApproveReport")
+    @PostMapping("/secondApproveReport")
     public ApiResponse secondApproveReport(@AuthenticationPrincipal User user, @RequestParam UUID id) {
         return ApiResponse.success(reportService.secondApproveReport(UUID.fromString(user.getUsername()), id));
     }
@@ -128,5 +129,23 @@ public class MemberController {
     @PostMapping("/createSchedule")
     public ApiResponse createSchedule(@AuthenticationPrincipal User user, @RequestBody ScheduleCreateRequest request) {
         return ApiResponse.success(scheduleService.createSchedule(UUID.fromString(user.getUsername()), request));
+    }
+
+    @Operation(summary = "스케줄 수정")
+    @PatchMapping("/updateSchedule")
+    public ApiResponse updateSchedule(@AuthenticationPrincipal User user, @RequestBody ScheduleUpdateRequest request) {
+        return  ApiResponse.success(scheduleService.updateSchedule(UUID.fromString(user.getUsername()), request));
+    }
+
+    @Operation(summary = "스케줄 상세 보기")
+    @GetMapping("/getSchedule")
+    public ApiResponse getSchedule(@RequestParam UUID id) {
+        return ApiResponse.success(scheduleService.getScheduleInfo(id));
+    }
+
+    @Operation(summary = "스케줄 리스트 보기")
+    @GetMapping("/getSchedules")
+    public ApiResponse getSchedules(@AuthenticationPrincipal User user) {
+        return ApiResponse.success(scheduleService.getSchedules(UUID.fromString(user.getUsername())));
     }
 }
