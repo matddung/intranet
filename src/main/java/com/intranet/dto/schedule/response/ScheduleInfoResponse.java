@@ -1,5 +1,6 @@
 package com.intranet.dto.schedule.response;
 
+import com.intranet.common.ScheduleType;
 import com.intranet.entity.Schedule;
 
 import java.time.LocalDateTime;
@@ -12,7 +13,8 @@ public record ScheduleInfoResponse(
         LocalDateTime startTime,
         LocalDateTime endTime,
         LocalDateTime modifiedAt,
-        String address
+        String address,
+        ScheduleType type
 ) {
     public static ScheduleInfoResponse from(Schedule schedule) {
         return new ScheduleInfoResponse(
@@ -22,7 +24,8 @@ public record ScheduleInfoResponse(
                 schedule.getStartTime(),
                 schedule.getEndTime(),
                 schedule.getModifiedAt(),
-                schedule.getAddress()
+                schedule.getAddress(),
+                schedule.getType()
         );
     }
 }

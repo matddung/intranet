@@ -14,6 +14,9 @@ public record ReportSecondApproveResponse(
         boolean secondApprove
 ) {
     public static ReportSecondApproveResponse of(boolean result, Report report) {
-        return new ReportSecondApproveResponse(result, report.getSecondApproveDate(), report.isSecondApprove());
+        return new ReportSecondApproveResponse(result,
+                report.getSecondApproveDate(),
+                report.isSecondApprove()
+        );
     }
 }

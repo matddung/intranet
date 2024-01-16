@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Tag(name = "모두 사용할 수 있는 API")
+@Tag(name = "회원 승인 전 사용할 수 있는 API")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping

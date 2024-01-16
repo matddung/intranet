@@ -1,5 +1,6 @@
 package com.intranet.dto.schedule.response;
 
+import com.intranet.common.ScheduleType;
 import com.intranet.entity.Schedule;
 import io.swagger.v3.oas.annotations.media.Schema;
 
@@ -17,9 +18,17 @@ public record ScheduleUpdateResponse(
         @Schema(description = "스케줄 시작하는 시간", example = "2024-01-09T15:00:00")
         LocalDateTime startTime,
         @Schema(description = "스케줄 끝나는 시간", example = "2024-01-09T15:00:00")
-        LocalDateTime endTime
+        LocalDateTime endTime,
+        ScheduleType type
 ) {
     public static ScheduleUpdateResponse of(boolean result, Schedule schedule) {
-        return new ScheduleUpdateResponse(result, schedule.getModifiedAt(), schedule.getContent(), schedule.getAddress(), schedule.getStartTime(), schedule.getEndTime());
+        return new ScheduleUpdateResponse(
+                result,
+                schedule.getModifiedAt(),
+                schedule.getContent(),
+                schedule.getAddress(),
+                schedule.getStartTime(),
+                schedule.getEndTime(),
+                schedule.getType());
     }
 }

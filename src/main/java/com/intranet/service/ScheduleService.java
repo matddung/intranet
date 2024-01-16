@@ -1,5 +1,6 @@
 package com.intranet.service;
 
+import com.intranet.common.ScheduleType;
 import com.intranet.dto.schedule.request.ScheduleCreateRequest;
 import com.intranet.dto.schedule.request.ScheduleUpdateRequest;
 import com.intranet.dto.schedule.response.ScheduleCreateResponse;
@@ -50,8 +51,15 @@ public class ScheduleService {
     }
 
     @Transactional(readOnly = true)
-    public List<ScheduleInfoResponse> getSchedules(UUID id) {
-        return scheduleRepository.findByMemberId(id).stream()
+    public List<ScheduleInfoResponse> getSchedules(UUID memberId) {
+        return scheduleRepository.findByMemberId(memberId).stream()
+                .map(ScheduleInfoResponse::from)
+                .toList();
+    }
+
+    @Transactional(readOnly = true)
+    public List<ScheduleInfoResponse> getSomeoneElseSchedules(UUID memberId) {
+        return scheduleRepository.findAllByTypeAndMemberId(ScheduleType.PUBLIC, memberId).stream()
                 .map(ScheduleInfoResponse::from)
                 .toList();
     }

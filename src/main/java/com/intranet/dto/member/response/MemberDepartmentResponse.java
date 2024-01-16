@@ -12,6 +12,10 @@ public record MemberDepartmentResponse (
         String position
 ) {
     public static MemberDepartmentResponse of(boolean result, Member member) {
-        return new MemberDepartmentResponse(result, member.getDepartment(), member.getPosition());
+        return new MemberDepartmentResponse(
+                result,
+                member.getDepartment(),
+                member.getPosition()
+        );
     }
 }

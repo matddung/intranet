@@ -1,5 +1,6 @@
 package com.intranet.dto.schedule.response;
 
+import com.intranet.common.ScheduleType;
 import com.intranet.entity.Member;
 import com.intranet.entity.Schedule;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -20,7 +21,8 @@ public record ScheduleCreateResponse(
         @Schema(description = "작성 시간", example = "2024-01-09T15:00:00")
         LocalDateTime createdAt,
         @Schema(description = "스케줄 작성자(현재 로그인한 유저)")
-        Member member
+        Member member,
+        ScheduleType type
 ) {
     public static ScheduleCreateResponse from(Schedule schedule) {
         return new ScheduleCreateResponse(
@@ -30,7 +32,8 @@ public record ScheduleCreateResponse(
                 schedule.getEndTime(),
                 schedule.getAddress(),
                 schedule.getCreatedAt(),
-                schedule.getMember()
+                schedule.getMember(),
+                schedule.getType()
         );
     }
 }

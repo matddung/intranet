@@ -14,6 +14,9 @@ public record ReportFirstApproveResponse(
         boolean firstApprove
 ) {
     public static ReportFirstApproveResponse of(boolean result, Report report) {
-        return new ReportFirstApproveResponse(result, report.getFirstApproveDate(), report.isFirstApprove());
+        return new ReportFirstApproveResponse(result,
+                report.getFirstApproveDate(),
+                report.isFirstApprove()
+        );
     }
 }

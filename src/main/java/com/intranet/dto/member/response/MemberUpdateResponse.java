@@ -18,6 +18,13 @@ public record MemberUpdateResponse(
         String phoneNumber
 ) {
     public static MemberUpdateResponse of(boolean result, Member member) {
-        return new MemberUpdateResponse(result, member.getName(), member.getBirth(), member.getAddress(), member.getEmail(), member.getPhoneNumber());
+        return new MemberUpdateResponse(
+                result,
+                member.getName(),
+                member.getBirth(),
+                member.getAddress(),
+                member.getEmail(),
+                member.getPhoneNumber()
+        );
     }
 }

@@ -11,6 +11,9 @@ public record MemberApproveResponse(
         MemberType type
 ) {
     public static MemberApproveResponse of(boolean result, Member member) {
-        return new MemberApproveResponse(result, member.getType());
+        return new MemberApproveResponse(
+                result,
+                member.getType()
+        );
     }
 }

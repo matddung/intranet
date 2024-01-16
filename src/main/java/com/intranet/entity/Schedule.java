@@ -1,5 +1,6 @@
 package com.intranet.entity;
 
+import com.intranet.common.ScheduleType;
 import com.intranet.dto.schedule.request.ScheduleCreateRequest;
 import com.intranet.dto.schedule.request.ScheduleUpdateRequest;
 import jakarta.persistence.*;
@@ -26,6 +27,7 @@ public class Schedule {
     @CreationTimestamp
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
+    private ScheduleType type;
 
     public static Schedule from(ScheduleCreateRequest request, Member member) {
         return Schedule.builder()
@@ -35,17 +37,19 @@ public class Schedule {
                 .content(request.content())
                 .address(request.address())
                 .createdAt(LocalDateTime.now())
+                .type(request.type())
                 .build();
     }
 
     @Builder
-    private Schedule(LocalDateTime startTime, LocalDateTime endTime, Member member, String content, String address, LocalDateTime createdAt) {
+    private Schedule(LocalDateTime startTime, LocalDateTime endTime, Member member, String content, String address, LocalDateTime createdAt, ScheduleType type) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.member = member;
         this.content = content;
         this.address = address;
         this.createdAt = createdAt;
+        this.type = type;
     }
 
     public void update(ScheduleUpdateRequest request, Member member) {
@@ -55,5 +59,6 @@ public class Schedule {
         this.startTime = request.startTime();
         this.endTime = request.endTime();
         this.modifiedAt = LocalDateTime.now();
+        this.type = request.type();
     }
 }
