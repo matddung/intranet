@@ -17,11 +17,18 @@
 개발 환경
 ---------
 Java 19
+
 Spring Boot 3.0.6
+
 Spring Security
+
 Springdoc 2.1.0
+
 Spring Data JPA
+
 Maria DB
+
 Gradle 7.6.1
+
 Lombok
 
