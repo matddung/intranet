@@ -1,10 +1,10 @@
 package com.intranet.service;
 
 import com.intranet.common.QuestionType;
-import com.intranet.dto.Question.Request.QuestionCreateRequest;
-import com.intranet.dto.Question.Response.QuestionCreateResponse;
-import com.intranet.dto.Question.Response.QuestionDeleteResponse;
-import com.intranet.dto.Question.Response.QuestionInfoResponse;
+import com.intranet.dto.question.Request.QuestionCreateRequest;
+import com.intranet.dto.question.Response.QuestionCreateResponse;
+import com.intranet.dto.question.Response.QuestionDeleteResponse;
+import com.intranet.dto.question.Response.QuestionInfoResponse;
 import com.intranet.entity.Question;
 import com.intranet.repository.QuestionRepository;
 import lombok.RequiredArgsConstructor;

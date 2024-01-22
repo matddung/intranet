@@ -1,6 +1,6 @@
 package com.intranet.entity;
 
-import com.intranet.dto.Note.request.NoteSendRequest;
+import com.intranet.dto.note.request.NoteSendRequest;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;

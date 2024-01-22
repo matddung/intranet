@@ -1,7 +1,7 @@
 package com.intranet.entity;
 
 import com.intranet.common.QuestionType;
-import com.intranet.dto.Question.Request.QuestionCreateRequest;
+import com.intranet.dto.question.Request.QuestionCreateRequest;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;

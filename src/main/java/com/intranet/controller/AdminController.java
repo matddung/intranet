@@ -1,7 +1,7 @@
 package com.intranet.controller;
 
 import com.intranet.dto.ApiResponse;
-import com.intranet.dto.Question.Request.QuestionCreateRequest;
+import com.intranet.dto.question.Request.QuestionCreateRequest;
 import com.intranet.dto.member.request.MemberDepartmentRequest;
 import com.intranet.security.AdminAuthorize;
 import com.intranet.service.AdminService;

@@ -1,4 +1,4 @@
-package com.intranet.dto.Question.Request;
+package com.intranet.dto.question.Request;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 

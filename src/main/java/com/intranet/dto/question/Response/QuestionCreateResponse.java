@@ -1,4 +1,4 @@
-package com.intranet.dto.Question.Response;
+package com.intranet.dto.question.Response;
 
 import com.intranet.common.QuestionType;
 import com.intranet.entity.Question;

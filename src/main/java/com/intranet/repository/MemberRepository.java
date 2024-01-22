@@ -12,4 +12,5 @@ public interface MemberRepository extends JpaRepository<Member, UUID> {
     Optional<Member> findByAccount(String account);
     List<Member> findAllByType(MemberType type);
     Member findByDepartmentAndPositionClass(String department, int positionClass);
+    Optional<Member> findByEmailAndAccount(String email, String account);
 }

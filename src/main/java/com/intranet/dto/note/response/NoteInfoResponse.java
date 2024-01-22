@@ -1,4 +1,4 @@
-package com.intranet.dto.Note.response;
+package com.intranet.dto.note.response;
 
 import com.intranet.entity.Member;
 import com.intranet.entity.Note;

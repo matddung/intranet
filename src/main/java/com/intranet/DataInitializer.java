@@ -35,6 +35,7 @@ public class DataInitializer implements ApplicationRunner {
                 .password(encoder.encode("test1"))
                 .name("김대리")
                 .department("영업팀")
+                .email("matddung76@naver.com")
                 .position("대리")
                 .positionClass(2)
                 .type(MemberType.USER)

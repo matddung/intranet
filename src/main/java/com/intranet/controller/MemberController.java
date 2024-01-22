@@ -1,8 +1,8 @@
 package com.intranet.controller;
 
 import com.intranet.dto.ApiResponse;
-import com.intranet.dto.Note.request.NoteSendRequest;
-import com.intranet.dto.Question.Request.QuestionCreateRequest;
+import com.intranet.dto.note.request.NoteSendRequest;
+import com.intranet.dto.question.Request.QuestionCreateRequest;
 import com.intranet.dto.member.request.MemberUpdateRequest;
 import com.intranet.dto.report.request.ReportSubmitRequest;
 import com.intranet.dto.schedule.request.ScheduleCreateRequest;

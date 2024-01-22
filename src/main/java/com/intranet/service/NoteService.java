@@ -1,9 +1,9 @@
 package com.intranet.service;
 
-import com.intranet.dto.Note.request.NoteSendRequest;
-import com.intranet.dto.Note.response.NoteDeleteResponse;
-import com.intranet.dto.Note.response.NoteInfoResponse;
-import com.intranet.dto.Note.response.NoteSendResponse;
+import com.intranet.dto.note.request.NoteSendRequest;
+import com.intranet.dto.note.response.NoteDeleteResponse;
+import com.intranet.dto.note.response.NoteInfoResponse;
+import com.intranet.dto.note.response.NoteSendResponse;
 import com.intranet.entity.Member;
 import com.intranet.entity.Note;
 import com.intranet.repository.MemberRepository;
