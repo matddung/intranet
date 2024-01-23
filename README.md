@@ -70,18 +70,22 @@ Lombok
 
 로컬 환경 실행 방법
 -------------------
-DB설정:
+DB설정
 
     mysql -u root -p;
     create database 'db명';
-  
+    
+git clone
+
+    git clone https://github.com/matddung/intranet.git
+
 yml 설정
 
-    file path : intranet/src/resource/application.yml
-  
-    datasource:
-    url: jdbc:mariadb://localhost:3306/'db명' ex) testtest
-    username: '사용자명' ex) test
-    password: '비밀번호' ex) 1234
+    file path: intranet/src/main/resources/application.yml
+
+    수정할 부분(24줄)
     
-cmd
+      datasource:
+        url: jdbc:mariadb://localhost:3306/'db명'  ex) testtest
+        username: '사용자명'  ex) test
+        password: '비밀번호'  ex) 1234
