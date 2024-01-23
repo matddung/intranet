@@ -70,5 +70,6 @@ Lombok
 
 로컬 환경 실행 방법
 -------------------
-1. DB설정
-   asdfasdf
+DB설정
+
+  asdfasdf
