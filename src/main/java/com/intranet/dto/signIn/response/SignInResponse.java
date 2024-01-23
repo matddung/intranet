@@ -1,4 +1,4 @@
-package com.intranet.dto.sign_in.response;
+package com.intranet.dto.signIn.response;
 
 import com.intranet.common.MemberType;
 import io.swagger.v3.oas.annotations.media.Schema;

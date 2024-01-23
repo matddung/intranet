@@ -2,7 +2,7 @@ package com.intranet.entity;
 
 import com.intranet.common.MemberType;
 import com.intranet.dto.member.request.MemberUpdateRequest;
-import com.intranet.dto.sign_up.request.SignUpRequest;
+import com.intranet.dto.signUp.request.SignUpRequest;
 import com.intranet.dto.member.request.MemberDepartmentRequest;
 import jakarta.persistence.*;
 import lombok.*;

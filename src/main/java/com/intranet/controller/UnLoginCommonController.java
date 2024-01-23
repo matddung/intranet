@@ -2,8 +2,8 @@ package com.intranet.controller;
 
 import com.intranet.dto.ApiResponse;
 import com.intranet.dto.password.request.FindPasswordRequest;
-import com.intranet.dto.sign_in.request.SignInRequest;
-import com.intranet.dto.sign_up.request.SignUpRequest;
+import com.intranet.dto.signIn.request.SignInRequest;
+import com.intranet.dto.signUp.request.SignUpRequest;
 import com.intranet.service.CommonService;
 import com.intranet.service.EmailService;
 import io.swagger.v3.oas.annotations.Operation;

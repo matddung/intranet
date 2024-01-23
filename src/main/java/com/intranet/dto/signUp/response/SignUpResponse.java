@@ -1,4 +1,4 @@
-package com.intranet.dto.sign_up.response;
+package com.intranet.dto.signUp.response;
 
 import com.intranet.entity.Member;
 import io.swagger.v3.oas.annotations.media.Schema;
