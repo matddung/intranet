@@ -34,6 +34,8 @@
 
 개발 환경
 ---------
+Windows 10, 64bit
+
 Java 19
 
 Spring Boot 3.0.6
@@ -65,3 +67,8 @@ Lombok
    * 김부장
      * ID : test3
      * PW : test3
+
+로컬 환경 실행 방법
+-------------------
+1. DB설정
+   asdfasdf
