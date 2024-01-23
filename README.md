@@ -36,7 +36,7 @@
 ---------
 Windows 10, 64bit
 
-Java 19
+Java 17
 
 Spring Boot 3.0.6
 
@@ -78,12 +78,15 @@ yml 경로
 
     file path: intranet/src/main/resources/application.yml
 
-yml 수정할 부분(24줄)
+yml 수정할 부분
+
+    username: '네이버 아이디'@naver.com
+    password: '네이버 비밀번호'
     
-      datasource:
-        url: jdbc:mariadb://localhost:3306/'db명'  ex) testtest
-        username: '사용자명'  ex) test
-        password: '비밀번호'  ex) 1234
+    datasource:
+    url: jdbc:mariadb://localhost:3306/'db명'  ex) testtest
+    username: '사용자명'  ex) test
+    password: '비밀번호'  ex) 1234
 
 gradle 빌드
 
