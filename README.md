@@ -73,12 +73,19 @@ Lombok
 DB설정
 
   mysql -u root -p;
+  
   create database 'db명';
+  
 yml 설정
 
   file path : intranet/src/resource/application.yml
+  
   datasource:
+  
     url: jdbc:mariadb://localhost:3306/'db명' ex) testtest
+    
     username: '사용자명' ex) test
+    
     password: '비밀번호' ex) 1234
+    
 cmd
