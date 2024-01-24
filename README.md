@@ -76,17 +76,22 @@ git clone
 
 yml 경로
 
-    file path: intranet/src/main/resources/application.yml
+    file path: intranet/src/main/resources/application-secret.default
 
 yml 수정할 부분
 
-    username: '네이버 아이디'@naver.com
-    password: '네이버 비밀번호'
+    application-secret.default -> application.yml로 수정
     
+    DB정보 기입)
     datasource:
     url: jdbc:mariadb://localhost:3306/'db명'  ex) testtest
     username: '사용자명'  ex) test
     password: '비밀번호'  ex) 1234
+
+메일 서비스 이용 시 수정(임시 비밀번호 발급) - [참조](https://velog.io/@studyjun/SpringBoot-SMTP-%EB%84%A4%EC%9D%B4%EB%B2%84-%EC%9D%B4%EB%A9%94%EC%9D%BC-%EC%9D%B8%EC%A6%9D)
+
+    username: '네이버 아이디'@naver.com
+    password: '네이버 비밀번호'
 
 gradle 빌드
 
@@ -199,12 +204,14 @@ Project
         │           ├── entity
         │           │   ├── Answer
         │           │   ├── Member
+        │           │   ├── MemberRefreshToken
         │           │   ├── Note
         │           │   ├── Question
         │           │   ├── Report
         │           │   └── Schedule
         │           ├── repository
         │           │   ├── AnswerRepository
+        │           │   ├── MemberRefreshTokenRepository
         │           │   ├── MemberRepository
         │           │   ├── NoteRepository
         │           │   ├── QuestionRepository

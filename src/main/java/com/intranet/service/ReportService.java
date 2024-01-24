@@ -23,25 +23,35 @@ public class ReportService {
     private final ReportRepository reportRepository;
     private final MemberRepository memberRepository;
 
+    private Member findApprover(Member submitter, int increment) {
+        return memberRepository.findByDepartmentAndPositionClass(submitter.getDepartment(), submitter.getPositionClass() + increment);
+    }
+
     @Transactional
     public ReportSubmitResponse submitReport(UUID submitterId, ReportSubmitRequest request) {
         Member submitter = memberRepository.findById(submitterId).orElseThrow(() -> new UsernameNotFoundException("찾을 수 없습니다."));
-        Member firstApprovePerson = memberRepository.findByDepartmentAndPositionClass(submitter.getDepartment(), submitter.getPositionClass() + 1);
+        Member firstApprovePerson = null;
+        Member secondApprovePerson = null;
 
-        if (firstApprovePerson == null || firstApprovePerson.getPositionClass() == 2) {
-            firstApprovePerson = memberRepository.findByDepartmentAndPositionClass(submitter.getDepartment(), submitter.getPositionClass() + 2);
-            if (firstApprovePerson == null) {
-                firstApprovePerson = memberRepository.findByDepartmentAndPositionClass(submitter.getDepartment(), submitter.getPositionClass() + 3);
-                if (firstApprovePerson == null) {
-                    throw new IllegalArgumentException("First Approve Person not found for this department : " + submitter.getDepartment() + " and positionClass : " + (submitter.getPositionClass() + 3));
-                }
-            }
+        if (submitter.getPositionClass() == 1) { // 사원이 제출한 경우
+            firstApprovePerson = findApprover(submitter, 2); // 과장 찾기
+            secondApprovePerson = findApprover(submitter, 3); // 부장 or 팀장 찾기
+        } else if (submitter.getPositionClass() == 2) { // 대리가 제출한 경우
+            firstApprovePerson = findApprover(submitter, 1); // 과장 찾기
+            secondApprovePerson = findApprover(submitter, 2); // 부장 or 팀장 찾기
+        } else if (submitter.getPositionClass() == 3) { // 과장이 제출한 경우
+            firstApprovePerson = findApprover(submitter, 1); // 부장 or 팀장 찾기
+            secondApprovePerson = firstApprovePerson; // first와 second 모두 같은 사람이 결제
+        } else if (submitter.getPositionClass() == 4) { // 팀장이 제출한 경우
+            firstApprovePerson = findApprover(submitter, 1); // 대표 이사 찾기
+            secondApprovePerson = firstApprovePerson; // first와 second 모두 같은 사람이 결제
         }
 
-        Member secondApprovePerson = memberRepository.findByDepartmentAndPositionClass(firstApprovePerson.getDepartment(), firstApprovePerson.getPositionClass() + 1);
-
-        if (secondApprovePerson == null || secondApprovePerson.getPositionClass() == 5) {
-            throw new IllegalArgumentException("Second Approve Person not found for this department : " + firstApprovePerson.getDepartment() + " and positionClass : " + (firstApprovePerson.getPositionClass() + 1));
+        // 과장이 없거나 부장, 팀장이 없을 경우 한쪽이 first와 second를 모두 결제
+        if (firstApprovePerson == null && secondApprovePerson != null) {
+            firstApprovePerson = secondApprovePerson;
+        } else if (secondApprovePerson == null && firstApprovePerson != null) {
+            secondApprovePerson = firstApprovePerson;
         }
 
         Report report = reportRepository.save(Report.from(request, submitter, firstApprovePerson, secondApprovePerson));
