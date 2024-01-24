@@ -26,13 +26,13 @@ public class UnLoginCommonController {
     private final EmailService emailService;
 
     @Operation(summary = "회원 가입")
-    @PostMapping("/sign-up")
+    @PostMapping("/signUp")
     public ApiResponse signUp(@RequestBody SignUpRequest request) {
         return ApiResponse.success(commonService.registMember(request));
     }
 
     @Operation(summary = "로그인")
-    @PostMapping("/sign-in")
+    @PostMapping("/signIn")
     public ApiResponse signIn(@RequestBody SignInRequest request) {
         return ApiResponse.success(commonService.signIn(request));
     }

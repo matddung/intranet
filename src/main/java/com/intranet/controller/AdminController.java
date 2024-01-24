@@ -24,10 +24,10 @@ public class AdminController {
     private final QuestionService questionService;
     private final AnswerService answerService;
 
-    @Operation(summary = "승인된 회원 목록 조회")
+    @Operation(summary = "전체 회원 목록 조회")
     @GetMapping("/members")
     public ApiResponse getApproveMembers() {
-        return ApiResponse.success(adminService.getApproveMembers());
+        return ApiResponse.success(adminService.getMembers());
     }
 
     @Operation(summary = "미승인된 회원 목록 조회")

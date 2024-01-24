@@ -61,6 +61,13 @@ public class DataInitializer implements ApplicationRunner {
                 .type(MemberType.USER)
                 .build());
 
+        memberRepository.save(Member.builder()
+                .account("waiting")
+                .password(encoder.encode("waiting"))
+                .name("waiting")
+                .type(MemberType.WAITING)
+                .build());
+
         questionRepository.save(Question.builder()
                 .subject("1번 게시글")
                 .content("Initializer Question Data")
