@@ -102,6 +102,9 @@ Lombok
 
     ./gradlew bootRun
 
+#### Swagger 주소(현재 클라이언트가 수정 중에 있어서 Swagger로 대체합니다. 수정 완료시 주소 수정하겠습니다.)
+
+    http://localhost:8080/swagger-ui/index.html
 
 ERD
 ---
