@@ -25,12 +25,7 @@
 
 개발 기간
 ---------
-2023.12.15 ~ 2024.01.22
-
-멤버구성
---------
-* matddung(윤준혁) - 백엔드 전체, 구상
-* DanHumphry(김대현) - 프론트엔드 전체
+2023.12.15 ~ ing
 
 개발 환경
 ---------
@@ -40,17 +35,7 @@ Java 17
 
 Spring Boot 3.0.6
 
-Spring Security
-
-Springdoc 2.1.0
-
-Spring Data JPA
-
 Maria DB
-
-Gradle 7.6.1
-
-Lombok
 
 테스트 데이터
 ---------
