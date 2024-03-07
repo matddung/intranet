@@ -1,4 +1,8 @@
-FROM openjdk:17-jre-alpine
+FROM ubuntu:20.04
+
+RUN apt-get update && \
+    apt-get install -y openjdk-17-jdk && \
+    rm -rf /var/lib/apt/lists/*
 
 ENV APP_HOME=/usr/app/
 
