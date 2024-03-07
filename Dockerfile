@@ -1,3 +1,11 @@
-FROM openjdk:17-jdk-slim
-ADD /build/libs/*.jar app.jar
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+FROM openjdk:17-jre-alpine
+
+ENV APP_HOME=/usr/app/
+
+WORKDIR $APP_HOME
+
+COPY build/libs/*.jar application.jar
+
+EXPOSE 8080
+
+CMD ["java", "-jar", "application.jar"]
